@@ -1,2 +1,2 @@
 # serf
-[serf](https://vitalinkaa.github.io/serf/)
+[serf](https://vitalinkaa.github.io/serf/app/)
