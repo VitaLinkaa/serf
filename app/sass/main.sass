@@ -1,11 +1,21 @@
 @import '../../node_modules/normalize.css/normalize';
 @import 'global';
 
+html 
+  box-sizing: border-box
+
+*::before,
+*::after
+  box-sizing: inherit
+
 body
   font-family: 'Fira Sans', sans-serif;
   fz16
   font-weight: normal
   font-style: normal;
+  background-color: #171919
+  color: #fff
+  text-transform: uppercase
 
 a 
   display: inline-block
@@ -17,13 +27,42 @@ ul, li
   padding: 0
   list-style: none
 
+.title
+  span
+    font-size: 150px;
+    color: rgba(#fff, .2)
+    font-weight: 800
+    position: relative
+    transform: translateX(-50px)
+    display: inline-block
+    h3
+      position: absolute
+      top: 0
+      right: -25px
+      margin: 0
+      color: #fff
+      font-size: 50px
+      &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: 0
+        width: 50px
+        height: 1px
+        background-color: #4AF6CD
+
+.container
+  max-width: 1700px
+  margin: 0 auto
 // .subtitle-left======================================
-.subtitle-left
+.subtitle
+  display: inline-block
+  text-align: right
+
+.headline-left
   font-size: 16px
   line-height: 32px
   letter-spacing: 7px
-  text-transform: uppercase
-  color: #FFFFFF
   opacity: 0.5;
   position: relative
   padding-left: 70px
@@ -38,7 +77,16 @@ ul, li
     top: 50%
 
 // end subtitle-left======================================
-.animated-line
+
+  // .subtitle-head======================================
+.headline-head
+  font-weight: 800
+  font-size: 30px
+  color: #fff
+  span
+    font-weight: 100
+  
+  .animated-line
   stroke-dashoffset: 600
   stroke-dasharray: 600
   animation: animline 5s infinite 6s
@@ -47,7 +95,33 @@ ul, li
   to
     stroke-dashoffset: 0
     
-
+.button
+  font-size: 25px
+  line-height: 36px
+  font-weight: 800
+  span
+    padding: 12px 42px 12px 8px
+    background-color: #4AF6CD
+    display: inline-block
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      background-color: #fff
+      width: 10px
+      height: 1px
+      top: 50%
+      left: -5px
+    &::after
+      content: ''
+      position: absolute
+      width: 25px
+      height: 21px
+      background-image: url(../img/arr-right.svg)
+      background-repeat: no-repeat
+      top: 50%
+      right: 12px
+      transform: translateY(-50%)
 
 
 
@@ -85,6 +159,7 @@ ul, li
         letter-spacing: 3px
         padding-top: 6px
         margin-bottom: 20px
+        text-transform: capitalize
   &__date
     // border: 1px solid red
     font-weight: 800
@@ -101,6 +176,7 @@ ul, li
     font-weight: 300
     font-size: 13px
     margin-top: 10px
+    text-transform: capitalize
 
 
 
@@ -109,8 +185,6 @@ ul, li
     font-weight: 800
     font-size: 150px
     line-height: 136px
-    text-transform: uppercase
-    color: #FFFFFF
     opacity: 0.07
     max-width: 350px
     position: absolute
@@ -132,8 +206,6 @@ ul, li
   right: 80px
   bottom: 80px
   text-align: right
-  color: #fff
-  text-transform: uppercase
 
   &-title
     font-weight: 800
@@ -188,9 +260,221 @@ ul, li
 
 .dots-box__name
   font-weight: 300
+  text-transform: capitalize
+
+
+.serf
+  padding: 100px 0 50px
+  background-image: url(../img/serf.png)
+  background-repeat: no-repeat
+  background-size: auto
+  background-position: right 120px
+
+  &__subtitle
+    text-align: right
+    margin-top: -50px
+
+.serf__slider
+  padding-top: 80px
+
+  .slider-arrows
+    opacity: .25
+  
+  .slick-slide:nth-child(4n + 1)
+    margin-top: 22px
+
+  .slick-slide:nth-child(4n + 3)
+    margin-top: 50px
+
+  .serf-box 
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+
+    
+    &__inner
+      min-height: 550px
+      background-color: rgba(#1C2121, .7)
+      position: relative
+      top: 0
+      bottom: 0
+      transition: all .5s
+      &:hover
+        background-color: rgba(#1C2121, .3)
+        .btn-box
+          display: block
+
+      &-title
+        font-weight: 800
+        font-size: 30px
+        line-height: 30px
+        padding: 52px 0 0 40px
+        width: 100px
+
+      &-location
+        font-size: 16px
+        line-height: 20px
+        letter-spacing: 6px
+        transform: rotate(-90deg)
+        position: absolute
+        width: 0
+        height: 0
+        left: 40px
+        bottom: 60px
+        white-space: nowrap
+        span
+          font-weight: 100
+
+.slick-current
+  .btn-box
+    display: block
+  .serf-box__inner
+    background-color: rgba(#1C2121, .3)
 
 
 
+.btn-box
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+  text-align: center
+  display: none
+
+#big-map
+  min-width: 1200px
+  min-height: 650px
+  background-image: url(../img/Map-Dots.svg)
+  background-repeat: no-repeat
+  background-size: contain
+  background-position: center
+  margin: 0 auto
+
+  .slick-list
+    min-height: 650px
+
+
+  .slick-current
+    .slider-dots__content
+      display: block
+      width: 175px
+      padding: 15px 10px
+      z-index: 99
+      background-color: rgba(#0F1010, .7)
+      border-radius: 4px
+      position: absolute
+      bottom: 35px
+      right: -25px
+      &::before
+        content: ''
+        position: absolute
+        width: 0
+        height: 0
+        border-bottom: 18px solid #4AF6CD
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+        bottom: -30px
+        left: 39%
+        border-bottom-left-radius: 15px
+        border-bottom-right-radius: 15px
+
+.slick-active
+  outline: none
+
+.slider-dots__content-row
+  display: flex
+  justify-content: space-between
+  margin-bottom: 20px
+
+.content-row__title
+  font-weight: 600
+  font-size: 16px
+  position: relative
+  padding-bottom: 10px
+  margin-bottom: 10px
+  &::before
+    content: ''
+    position: absolute
+    background-color: #4AF6CD
+    width: 50px
+    height: 1px
+    bottom: 0
+    left: 0
+
+.slider-dots__content-item
+  text-align: center
+  margin: 0 auto
+  img 
+    margin: 0 auto
+  &-num
+    font-size: 14px  
+    margin: 10px 0
+    text-align: center
+  &-name
+    font-size: 14px
+    text-align: center
+    font-weight: 100
+    
+
+.content-row__subtitle
+  text-transform: capitalize
+  font-size: 15px
+  font-weight: 400
+  margin-bottom: 10px
+
+
+.slider-dots__circle
+  width: 16px
+  height: 16px
+  background-color: #4AF6CD
+  border-radius: 50%
+  margin: 0 auto
+
+.slider-dots__content
+  display: none
+
+.green_point-1,
+.green_point-2,
+.green_point-3,
+.green_point-4,
+.green_point-5,
+.green_point-6,
+.green_point-7,
+.green_point-8
+  position: relative
+
+.green_point-1
+  top: 350px
+  left: 0
+
+.green_point-2
+  top: 300px
+  left: -20px
+
+.green_point-3
+  top: 340px
+  left: -20px
+
+.green_point-4
+  top: 500px
+  left: -100px
+
+.green_point-5
+  top: 240px
+  right: 124px
+
+.green_point-6
+  top: 520px
+  right: 232px
+  z-index: 5
+
+.green_point-7
+  left: -186px
+  top: 385px
+
+.green_point-8
+  left: -108px
+  top: 533px
 
 
 
